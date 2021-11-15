@@ -82,8 +82,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'date_created_tesim', label: 'Publication Date', single: true
     config.add_facet_field 'subject_tesim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
     config.add_facet_field 'language_ssim', label: 'Language', limit: true
-    config.add_facet_field 'lc_1letter_ssim', label: 'Call Number'
-    config.add_facet_field 'subject_geo_ssim', label: 'Region'
+    config.add_facet_field 'geo_subject_tesim', label: 'Region'
     config.add_facet_field 'subject_era_ssim', label: 'Era'
 
     config.add_facet_field 'example_pivot_field', label: 'Pivot Field', pivot: ['language_ssim'], collapsing: true
@@ -103,33 +102,22 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
     config.add_index_field 'title_tesim', label: 'Title'
-    config.add_index_field 'title_vern_ssim', label: 'Title'
     config.add_index_field 'creator_tesim', label: 'Author'
-    config.add_index_field 'author_vern_ssim', label: 'Author'
-    # config.add_index_field 'format', label: 'Format'
     config.add_index_field 'language_tesim', label: 'Language'
     config.add_index_field 'publisher_tesim', label: 'Published'
-    config.add_index_field 'published_vern_ssim', label: 'Published'
-    config.add_index_field 'lc_callnum_ssim', label: 'Call number'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
     # config.add_show_field 'title_tesim', label: 'Title'
-    config.add_show_field 'title_vern_ssim', label: 'Title'
-    config.add_show_field 'subtitle_tsim', label: 'Subtitle'
-    config.add_show_field 'subtitle_vern_ssim', label: 'Subtitle'
     config.add_show_field 'creator_tesim', label: 'Author'
-    config.add_show_field 'author_vern_ssim', label: 'Author'
-    # config.add_show_field 'format', label: 'Format'
-    config.add_show_field 'url_fulltext_ssim', label: 'URL'
-    config.add_show_field 'url_suppl_ssim', label: 'More Information'
+    config.add_show_field 'description_tesim', label: 'Description'
     config.add_show_field 'language_tesim', label: 'Language'
     config.add_show_field 'publisher_tesim', label: 'Published'
-    config.add_show_field 'published_vern_ssim', label: 'Published'
     config.add_show_field 'subject_tesim', label: 'Subject'
+    config.add_show_field 'geo_subject_tesim', label: 'Geo Subject'
+    config.add_show_field 'required_software_tesim', label: 'Required Software'
+    config.add_show_field 'related_url_tesim', label: 'Related URL'
     config.add_show_field 'license_tesim', label: 'License'
-    config.add_show_field 'lc_callnum_ssim', label: 'Call number'
-    config.add_show_field 'isbn_ssim', label: 'ISBN'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
