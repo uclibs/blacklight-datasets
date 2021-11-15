@@ -1,24 +1,18 @@
-# README
+# Blacklight Datasets
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A test Blacklight instance for curating access to Datasets in Scholar@UC. 
 
-Things you may want to cover:
+### Solr Configuration
 
-* Ruby version
+The purpose of the app is to display content from the Scholar@UC Solr index. Supply the Scholar Solr URL In the blacklight.yml; confirm the url for the solr-core to be displayed.
 
-* System dependencies
+`/config/blacklight.yml`
 
-* Configuration
+### Run the app
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Install
+  `bundle install`
+1. Setup database
+  `rails db:migrate`
+1. Start the app
+  `rails s`
