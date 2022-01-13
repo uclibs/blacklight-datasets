@@ -78,19 +78,13 @@ class CatalogController < ApplicationController
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
-    config.add_facet_field 'date_created_sim', label: 'Publication Date', single: true
-    config.add_facet_field 'subject_sim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
-    config.add_facet_field 'language_sim', label: 'Language', limit: true
-    config.add_facet_field 'geo_subject_sim', label: 'Region'
-    config.add_facet_field 'subject_era_sim', label: 'Era'
-    config.add_facet_field 'creator_sim', label: 'Creator', single: true
+    config.add_facet_field 'creator_sim', label: 'Creator/Author', single: true
+    config.add_facet_field 'subject_sim', label: 'Subject', limit: 20, index_range: 'A'..'Z'
     config.add_facet_field 'college_sim', label: 'College', limit: 20, index_range: 'A'..'Z'
-    config.add_facet_field 'department_sim', label: 'Department', limit: true
+    config.add_facet_field 'language_sim', label: 'Language', limit: true
     config.add_facet_field 'publisher_sim', label: 'Publisher'
 
-    config.add_facet_field 'example_pivot_field', label: 'Pivot Field', pivot: ['language_ssim'], collapsing: true
-
-    config.add_facet_field 'example_query_facet_field', label: 'Publish Date', :query => {
+    config.add_facet_field 'example_query_facet_field', label: 'Date Created', :query => {
        :years_5 => { label: 'within 5 Years', fq: "date_created_sim:[#{Time.zone.now.year - 5 } TO *]" },
        :years_10 => { label: 'within 10 Years', fq: "date_created_sim:[#{Time.zone.now.year - 10 } TO *]" },
        :years_25 => { label: 'within 25 Years', fq: "date_created_sim:[#{Time.zone.now.year - 25 } TO *]" }
